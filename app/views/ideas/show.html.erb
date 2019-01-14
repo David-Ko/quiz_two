@@ -6,7 +6,7 @@
     <% end %>
     <div class = "form-group">
         
-        <p><%= @idea.title%></p>
+        <b><%= @idea.title%></b>
         <p><%= @idea.body%></p>
     </div>
     <small class = "btn btn-outline-primary">
@@ -28,12 +28,12 @@
 </div>
 
 <div class="container mt-4">
-    <h4>Comments</h4>
+    <h4>Reviews</h4>
 </div>
 <div class = "container mt-3">
     <% @reviews.each do |review| %>
         <div class = "border rounded container mt-3 ">
-            <p><%=review.body%></p>
+            <b><%=review.body%></b>
             <small><%=review.created_at%></small>
             <small class='btn btn-outline-primary'>
                 <%= link_to "Delete", idea_review_path(@idea.id, review.id), method: :delete, data: {confirm: "you sure?"}%>

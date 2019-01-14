@@ -13,7 +13,7 @@ class IdeasController < ApplicationController
 
     def create
         @idea = Idea.new idea_params
-        # @idea.user = current_user
+        @idea.user = current_user
         if @idea.save
             redirect_to ideas_path
         else

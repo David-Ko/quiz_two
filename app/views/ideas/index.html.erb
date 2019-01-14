@@ -1,8 +1,11 @@
 <div class = "container mt-3 ">
         <% @ideas.each do |idea| %>
-            <div class = "container mt-3 border rounded">
-                <p><%= link_to(idea.title, idea_path(idea.id))%></p>
-                <p><%= idea.body%></p>
+        
+            <div class = "container mt-3 border rounded" id = "parent">
+                <span class= border id = "button">+</span>   
+                <b><%= link_to(idea.title, idea_path(idea.id))%></b>
+                <p id = "idea-body"><%= idea.body%></p>
             </div>
+        
         <% end %>
 </div>
