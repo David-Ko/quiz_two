@@ -1,0 +1,14 @@
+<div class="container mt-3">
+    <div class = "form-group">
+        
+        <p><%= @idea.title%></p>
+        <p><%= @idea.body%></p>
+    </div>
+    <small class = "btn btn-outline-primary">
+        <%= link_to 'Delete', idea_path(@idea.id), method: :delete, data: {confirm: "For real?"} %>
+    </small>
+    <small class = "btn btn-outline-primary">
+        <%= link_to 'Edit', edit_idea_path(@idea.id) %>
+    </small>
+
+</div>

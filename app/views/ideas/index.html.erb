@@ -1,5 +1,8 @@
-<div class="container">
-    <h1>Hi</h1>
-
+<div class = "container mt-3 ">
+        <% @ideas.each do |idea| %>
+            <div class = "container mt-3 border rounded">
+                <p><%= link_to(idea.title, idea_path(idea.id))%></p>
+                <p><%= idea.body%></p>
+            </div>
+        <% end %>
 </div>
-
