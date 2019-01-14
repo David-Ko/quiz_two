@@ -1,5 +1,6 @@
 class Idea < ApplicationRecord
-
+    has_many :reviews, dependent: :destroy
+    
     validates(
         :title, presence: { message: "Title ust be present" }
     )

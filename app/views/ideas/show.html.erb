@@ -10,5 +10,29 @@
     <small class = "btn btn-outline-primary">
         <%= link_to 'Edit', edit_idea_path(@idea.id) %>
     </small>
+</div>
 
+<div class="container mt-3">
+        <%= form_with(model: [@idea, @review], local: true) do |form|%>
+            <div class="form-group">
+                    <%= form.label :Review%>
+                    <%= form.text_area :body, class: "form-control" %>
+            </div>
+                    <%= form.submit 'Place a review', class: "btn btn-outline-primary"%>
+        <% end %>
+</div>
+
+<div class="container mt-4">
+    <h4>Comments</h4>
+</div>
+<div class = "container mt-3">
+    <% @reviews.each do |review| %>
+        <div class = "border rounded container mt-3 ">
+            <p><%=review.body%></p>
+            <small><%=review.created_at%></small>
+            <small class='btn btn-outline-primary'>
+                <%= link_to "Delete", idea_review_path(@idea.id, review.id), method: :delete, data: {confirm: "you sure?"}%>
+            </small>
+        </div>
+    <% end %>
 </div>
