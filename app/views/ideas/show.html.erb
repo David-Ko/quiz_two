@@ -1,4 +1,9 @@
 <div class="container mt-3">
+     <% if @idea.errors.present? %>
+                <p class="form-errors">
+                <%= @idea.errors.full_messages.join(", ") %>
+                </p>
+    <% end %>
     <div class = "form-group">
         
         <p><%= @idea.title%></p>

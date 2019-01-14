@@ -1,5 +1,6 @@
 class IdeasController < ApplicationController
     before_action :find_idea, only: [:show, :destroy, :edit, :update]
+    before_action :authenticate_user!, except: [:show, :index]
 
     def index
         @ideas = Idea.all.order(created_at: :desc)

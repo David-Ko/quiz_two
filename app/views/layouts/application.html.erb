@@ -10,8 +10,9 @@
   </head>
 
   <body>
+  <header>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="#">Idea Factory</a>
+  <a class="navbar-brand" href="/">Idea Factory</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -27,9 +28,33 @@
       <li class="nav-item">
         <%= link_to 'New', new_idea_path, class: "nav-link text-danger" %>
       </li>
-
+      <%if user_signed_in?%>
+                      <li class="nav-item">
+                        <div class="nav-link text-primary" >
+                          Hello <%= current_user.first_name %> -
+                          <%= link_to "Logout", "/session",
+                                method: :delete,
+                                data: {confirm: "are you sure you want to log out?"} %>
+                        </div>
+                      <%else%>
+                        <div class="nav-link text-primary" >
+                          <%= link_to "Sign In", new_session_path %>
+                        </div>
+                        <div class="nav-link text-primary" >
+                          <%= link_to "Sign Up", new_user_path %>
+                        </div>
+                      </li>
+                      <% end %>
   </div>
 </nav>
+  </header>
+    <main class="container-fluid mt-3">
+        <% flash.each do |type, message|%>
+          <div class="alert alert-<%= type%>">
+            <%= message %>
+          </div>
+        <% end %>
+    </main>
     <%= yield %>
   </body>
 </html>
