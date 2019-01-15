@@ -7,7 +7,7 @@ class ReviewsController < ApplicationController
         @idea = Idea.find params[:idea_id]
         @review = Review.new review_params
         @review.idea = @idea
-        # @review.user = current_user
+        @review.user = current_user
         if @review.save
             redirect_to idea_path(@idea.id)
         else
@@ -19,16 +19,11 @@ class ReviewsController < ApplicationController
     def destroy
         @review = Review.find params[:id]
           @review.destroy
-            # flash[:primary] = "Why delete me?"
+          flash[:primary] = "Why delete me?"
           redirect_to idea_path(@review.idea.id)
-        
     end
 
-
-
-
     private
-    
     def find_review
         @review = Review.find params[:id]
     end

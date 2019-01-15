@@ -22,23 +22,19 @@ class IdeasController < ApplicationController
     end
 
     def show
-        # @idea = Idea.find params[:id]
         @reviews = @idea.reviews.order(created_at: :desc)
         @review = Review.new
     end
 
     def destroy
-        # @idea = Idea.find params[:id]
         @idea.destroy
         redirect_to ideas_path
     end
 
     def edit
-        # @idea = Idea.find params[:id]
     end
 
     def update
-        # @idea = Idea.find params[:id]
         if @idea.update idea_params
             redirect_to idea_path(@idea.id)
         else 
@@ -46,10 +42,7 @@ class IdeasController < ApplicationController
         end
     end
 
-
-
     private 
-
     def idea_params
         params.require(:idea).permit(:title, :body)
     end
