@@ -1,0 +1,19 @@
+<div class = "container mt-3 ">
+        <h2>Ideas</h2>
+        <% @ideas.each do |idea| %>
+        <div>
+            <div class = "d-flex">
+                <div class = "mr-2 button sibling">
+                    <p class = dom_id>+</p> 
+                    <p class='visibility'>-</p>  
+                </div>
+                <div class = "sibling">
+                    <b><%= link_to(idea.title, idea_path(idea.id))%></b>
+                    <div class = "description visibility">
+                        <p id = "idea-body"><%= idea.body%></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <% end %>
+</div>
