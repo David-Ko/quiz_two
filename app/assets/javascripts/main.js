@@ -1,15 +1,11 @@
-// document.querySelectorAll(".blah").forEach(node => {
-//     node.addEventListener("mouseenter", event => {
-//         // console.log(`${event} was clicked`)
-//         event.currentTarget.classList.add("pink")
-//     });
-//     node.addEventListener("mouseleave", event => {
-//         // console.log(`${event} was clicked`)
-//         event.currentTarget.classList.remove("pink")
-//     });
-// });
+const description = document.querySelectorAll('.description');
+const button = document.querySelectorAll('.button');
 
-const parent = document.querySelector("#parent")
-const blah = parent.querySelector(".class")
-
-blah.addEventListener('click', event=>{event.target.closest("p").add("hide")})
+button.forEach(node => {
+    node.addEventListener("click", event => {
+         console.log(event.target)
+         console.log(event.currentTarget.nextElementSibling.children[1])
+         event.currentTarget.nextElementSibling.children[1].classList.toggle('visibility')
+    });
+    
+});
